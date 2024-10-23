@@ -6,22 +6,23 @@
     <meta charset="UTF-8">
     <script>
         function omtrek() {
-            $pi = pi();
-            $straal = $dia / 2;
-            $omtrek = $pi * $dia;
+            const diameter = document.getElementById("getal1");
+            const pi = Math.PI;
+            let omtrek = pi * diameter.value;
+            console.log(omtrek);
+            document.getElementById("plekdiv").innerHTML = "De omtrek is: " + omtrek.toFixed(2);
+            window.alert(omtrek.toFixed(2));
+            return omtrek;
         }
     </script>
 </head>
 
 <body>
     <h1>De omtrek berkenen.</h1>
-    <p>Geef de straal:</p>
+    <p>Geef de diameter:</p>
     <input type="number" id="getal1" value="">
-    <input type="submit">
+    <input type="submit" onclick="omtrek()">
     <div id="plekdiv"></div>
-    <script>
-        window.alert(${ getal1 })
-    </script>
 </body>
 
 </html>
