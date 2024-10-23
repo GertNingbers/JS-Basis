@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <head>
-        <title>InputValue</title>
-        <meta charset="UTF-8">
-    </head>
-    <body>
 
-    </body>
+<head>
+    <title>InputValue</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="JS-10style.css?1">
+
+</head>
+
+<body>
+    <h1>InputValue</h1>
+    
+    <table>
+        <tr>
+            <td colspan="2">Output:</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="resultdiv"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><p>Voornaam:</td><td><input type="text" id="voornaam" value="" placeholder="Voornaam" required> </p></td>
+        </tr>
+        <tr>
+            <td><p>Achternaam:</td><td><input type="text" id="achternaam" value="" placeholder="Achternaam" required> </p></td>
+        </tr>
+        <tr>
+            <td><p>Leeftijd:</td><td><input type="number" id="leeftijd" value="" placeholder="leeftijd" required> </p></td>
+        </tr>
+        <tr>
+            <td><p>Over:</td><td><input type="number" id="over" value="" placeholder="x" required> jaar... </p></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit" onclick="antwoord()">Plaats tekst</button></td>
+        </tr>
+    </table>
+    <script>
+        function antwoord() {
+            let leeftijd = Number(document.getElementById("leeftijd").value);
+            let overl = Number(document.getElementById("over").value);
+            let voornaam = document.getElementById("voornaam").value;
+            let achternaam = document.getElementById("achternaam").value;
+            let som = leeftijd + overl;
+
+            document.getElementById('resultdiv').innerHTML = "Hallo ik ben " + voornaam + " " + achternaam + ". Over " + overl + " jaar ben ik " + som + " jaar oud.";
+            
+        }
+    </script>
+</body>
 </html>
