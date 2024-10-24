@@ -11,13 +11,13 @@
 <body>
     <form>
         <fieldset>
-            <div  id="output"></div>
+            <div id="output"></div>
         </fieldset>
         <fieldset>
             <div id="divtoevoeg">
-               <p>Auto: <input type="text" id="auto" placeholder="auto-naam" value="" required></p>
-               <p>Prijs: €<input type="number" id="prijs" placeholder="auto-prijs" value="" required></p>
-               <button type="button" id="toevoeg" onclick="toevoegen()">voegtoe</button>
+                <p>Auto: <input type="text" id="auto" placeholder="auto-naam" value="" required></p>
+                <p>Prijs: €<input type="number" id="prijs" placeholder="auto-prijs" value="" required></p>
+                <button type="button" onclick="toevoegen()">voegtoe</button>
             </div>
         </fieldset>
         <fieldset>
@@ -26,25 +26,40 @@
     </form>
 
     <script>
-
-         const autos = []
-         const prijsen = []
-     function  toevoegen() {
-        var auto = document.getElementById("auto").value;
-        var prijs = document.getElementById("prijs").value;
-
-       for (i = 0; i < autos.length; i++) {
-        autos.push(auto);
-        prijsen.push(prijs)
-        document.getElementById("output").innerHTML ="De " + autos + " is " + prijsen;
-    }
-    
-}
+        var autos = [];
+        var prijsen = [];
 
 
 
+        function toevoegen() {
+            var auto = document.getElementById("auto").value;
+            var prijs = document.getElementById("prijs").value;
 
+            if (autos.indexOf(auto) === -1) {
+                autos.push(auto);
+                prijsen.push(prijs);
+            }
 
+            var output = "";
+            for (i = 0; i < autos.length; i++) {
+                output += "De " + autos[i] + " is " + prijsen[i] + " <button type='button' id=' " + [i] +  "' onclick=''>delete</button>" + "<br>";
+            }
+            document.getElementById("output").innerHTML = output;
+
+            // Bereken de som van de prijzen
+            var som = 0;
+            for (var j = 0; j < prijsen.length; j++) {
+                som += parseFloat(prijsen[j]); // Zorg ervoor dat je de prijs als een getal behandelt
+            }
+
+            // Toon de totale prijs
+            if (autos.length > 0) {
+                document.getElementById('divtotal').innerHTML = "De totale prijs van de " + autos.length + " auto\'s is €" + som.toFixed(2); // toFixed(2) voor 2 decimalen
+            }
+        }
+        function verwijder(){
+            
+        }
     </script>
 </body>
 
