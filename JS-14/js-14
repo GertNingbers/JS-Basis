@@ -11,7 +11,7 @@
 <body>
     <form>
         <fieldset>
-            <div id="output"></div>
+            <div id="divtotal"></div>
         </fieldset>
         <fieldset>
             <div id="divtoevoeg">
@@ -21,57 +21,56 @@
             </div>
         </fieldset>
         <fieldset>
-            <div id="divtotal"></div>
+            <div id="output"></div>
         </fieldset>
     </form>
 
     <script>
-        var autos = [];
-        var prijsen = [];
+        const autos = [];
+        const prijsen = [];
 
         function toevoegen() {
-            var auto = document.getElementById("auto").value;
-            var prijs = document.getElementById("prijs").value;
+            let auto = document.getElementById("auto").value;
+            let prijs = document.getElementById("prijs").value;
 
             //pushed wat je toevoegd in de array.
             autos.push(auto);
             prijsen.push(prijs);
-             
+
             //update de div met totaal prijs.
-            updateOutput();
+            update();
         }
-        
-        //for het updaten van de div met totaal prijs.
-        function updateOutput() {
-            var output = "";
+
+        //for het updaten van de div met totaal prijs en toevoegen delete button en auto en prijs.
+        function update() {
+            let output = "";
             for (let i = 0; i < autos.length; i++) {
                 output += "De " + autos[i] + " is " + prijsen[i] + " <button type='button' onclick='verwijder(" + i + ")'>delete</button><br>";
             }
             document.getElementById("output").innerHTML = output;
 
             //de som van de totaal prijs.
-            var som = 0;
-            for (var j = 0; j < prijsen.length; j++) {
+            let som = 0;
+            for (let j = 0; j < prijsen.length; j++) {
+                //som=0 +=zorgt ervoor dat prijsen erbij opgetelt wordt.
                 som += parseFloat(prijsen[j]);
             }
 
-            // Toont de totale prijs.
+            // Toont de totale prijs omdat length vanaf 1 begint te tellen.
             if (autos.length > 0) {
                 document.getElementById('divtotal').innerHTML = "De totale prijs van de " + autos.length + " auto\'s is €" + som.toFixed(2);
-            }
-        }
-         
-        //delete knop krijgt hier zijn functie.
-        function verwijder(x) {
-            autos.splice(x, 1); 
-            prijsen.splice(x, 1);  x
-
-            //update de div met totaal prijs.
-            updateOutput(); 
-
-            if (autos.length === 0) {
+            } else {
                 document.getElementById('divtotal').innerHTML = "";
             }
+        }
+
+        //delete knop krijgt hier zijn functie.
+        function verwijder(x) {
+            autos.splice(x, 1);
+            prijsen.splice(x, 1);
+
+            //update de div met totaal prijs wanner ik delete knop druk.
+            update();
         }
     </script>
 </body>
