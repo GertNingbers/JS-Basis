@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="js-14.css">
+    <link rel="stylesheet" href="js-14.css?1">
     <title>JS-Arrays</title>
 </head>
 
@@ -29,36 +29,49 @@
         var autos = [];
         var prijsen = [];
 
-
-
         function toevoegen() {
             var auto = document.getElementById("auto").value;
             var prijs = document.getElementById("prijs").value;
 
-            if (autos.indexOf(auto) === -1) {
-                autos.push(auto);
-                prijsen.push(prijs);
-            }
-
+            //pushed wat je toevoegd in de array.
+            autos.push(auto);
+            prijsen.push(prijs);
+             
+            //update de div met totaal prijs.
+            updateOutput();
+        }
+        
+        //for het updaten van de div met totaal prijs.
+        function updateOutput() {
             var output = "";
-            for (i = 0; i < autos.length; i++) {
-                output += "De " + autos[i] + " is " + prijsen[i] + " <button type='button' id=' " + [i] +  "' onclick=''>delete</button>" + "<br>";
+            for (let i = 0; i < autos.length; i++) {
+                output += "De " + autos[i] + " is " + prijsen[i] + " <button type='button' onclick='verwijder(" + i + ")'>delete</button><br>";
             }
             document.getElementById("output").innerHTML = output;
 
-            // Bereken de som van de prijzen
+            //de som van de totaal prijs.
             var som = 0;
             for (var j = 0; j < prijsen.length; j++) {
-                som += parseFloat(prijsen[j]); // Zorg ervoor dat je de prijs als een getal behandelt
+                som += parseFloat(prijsen[j]);
             }
 
-            // Toon de totale prijs
+            // Toont de totale prijs.
             if (autos.length > 0) {
-                document.getElementById('divtotal').innerHTML = "De totale prijs van de " + autos.length + " auto\'s is €" + som.toFixed(2); // toFixed(2) voor 2 decimalen
+                document.getElementById('divtotal').innerHTML = "De totale prijs van de " + autos.length + " auto\'s is €" + som.toFixed(2);
             }
         }
-        function verwijder(){
-            
+         
+        //delete knop krijgt hier zijn functie.
+        function verwijder(x) {
+            autos.splice(x, 1); 
+            prijsen.splice(x, 1);  x
+
+            //update de div met totaal prijs.
+            updateOutput(); 
+
+            if (autos.length === 0) {
+                document.getElementById('divtotal').innerHTML = "";
+            }
         }
     </script>
 </body>
