@@ -4,15 +4,17 @@ body {
     justify-content: center;
     align-items: center;
     background-color: darkcyan;
-    height: 100vh; 
-    margin: 0; 
 }
 
 div {
-    max-width: 1000px;
+    max-width: 900px;
 }
 
 button {
     background-color: gold;
     font-size: medium;
+}
+
+img {
+    margin: -2px 0;
 }

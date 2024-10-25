@@ -16,7 +16,7 @@
     <div id="imges"></div>
     <script>
         const points = ['<img src="img/hond1.jpg">', '<img src="img/hond2.jpg">', '<img src="img/hond3.jpg">', '<img src="img/hond4.jpg">', '<img src="img/hond5.jpg">', '<img src="img/hond6.jpg">', '<img src="img/hond7.jpg">', '<img src="img/hond8.jpg">', '<img src="img/hond9.jpg">'];
-        document.getElementById("imges").innerHTML = points;
+        document.getElementById("imges").innerHTML = points.join('');
 
         function shuffle() {
             points.sort(function () { return 0.5 - Math.random() });
