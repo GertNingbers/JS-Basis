@@ -3,18 +3,28 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: darkcyan;
+    background-color: rgb(108, 166, 20);
 }
 
 div {
     max-width: 900px;
+    border: 50px solid darkgreen;
+    background-color: darkgreen;
 }
 
 button {
-    background-color: gold;
+    background-color: red;
     font-size: medium;
+    border: 10px solid darkgreen;
+    color: gold;
 }
 
 img {
     margin: -2px 0;
 }
+h1{
+    color: gold;
+    border: 10px solid darkgreen;
+    background-color: darkgreen;
+}
+

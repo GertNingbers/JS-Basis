@@ -4,22 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="hondshuffel.css?1">
+    <link rel="stylesheet" href="hondshuffel.css">
 
     <title>JS-Hondshuffel</title>
 </head>
 
 <body>
     <h1>Honden-Shuffel</h1>
-    <h2><button type="button" onclick="shuffle()">Shuffel</button></h2>
+    <h2><button type="button" onclick="shuffel()">Shuffel</button></h2>
 
     <div id="imges"></div>
     <script>
         const points = ['<img src="img/hond1.jpg">', '<img src="img/hond2.jpg">', '<img src="img/hond3.jpg">', '<img src="img/hond4.jpg">', '<img src="img/hond5.jpg">', '<img src="img/hond6.jpg">', '<img src="img/hond7.jpg">', '<img src="img/hond8.jpg">', '<img src="img/hond9.jpg">'];
         document.getElementById("imges").innerHTML = points.join('');
 
-        function shuffle() {
-            points.sort(function () { return 0.5 - Math.random() });
+        function shuffel() {
+            //fisher-yates shuffle op JS-basis 10.
+            for (let i = points.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1)); 
+                
+                [points[i], points[j]] = [points[j], points[i]];
+            }
             document.getElementById("imges").innerHTML = points.join('');
         }
     </script>
