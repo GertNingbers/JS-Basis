@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Stopwatch</title>
+</head>
+
+<body>
+    <h2>The setInterval() Method</h2>
+    <div id="display"></div>
+    <button onclick="fStop()">stop</button>
+    <button onclick="start()" id="start">start</button>
+    <button onclick="reset()">reset</button>
+
+    <script>
+        let milsec = 0;
+        let sec = 0;
+        let min = 0;
+        let uur = 0;
+        let loopt = false;
+        let mijnInterval = setInterval(secTeller, 10);
+        document.getElementById("display").innerHTML = nummer(uur) + ":" + nummer(min) + ":" + nummer(sec) + ":" + nummer(milsec);
+
+        function nummer(num) {
+            if (num < 10) {
+                return "0" + num;
+            } else {
+                return num;
+            }
+        }
+
+        function fStop() {
+            clearInterval(mijnInterval)
+            document.getElementById("start").innerHTML = "<button onclick='continu()'>continue</button>"
+            loopt = false;
+        }
+
+        function start() {
+            if (!loopt) {
+                mijnInterval = setInterval(secTeller, 10);
+                loopt = true;
+            }
+        }
+        function reset() {
+            sec = 0;
+            min = 0;
+            uur = 0;
+            milsec = 0;
+            document.getElementById("display").innerHTML = nummer(uur) + ":" + nummer(min) + ":" + nummer(sec) + ":" + nummer(milsec);
+            document.getElementById("start").innerHTML =  "<button onclick='start()'>start</button>";
+            
+        }
+        function continu() {
+            if (!loopt) {
+                mijnInterval = setInterval(secTeller, 10);
+                loopt = true;
+            }
+        }
+
+        function secTeller() {
+            document.getElementById("display").innerHTML = nummer(uur) + ":" + nummer(min) + ":" + nummer(sec) + ":" + nummer(milsec);
+
+            milsec++
+
+            if (milsec == 60) {
+                sec++
+                milsec = 0;
+            }
+            if (60 == sec) {
+                min++
+                sec = 0;
+            }
+            if (60 == min) {
+                uur++
+                min = 0;
+                sec = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>
