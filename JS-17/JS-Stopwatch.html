@@ -14,15 +14,15 @@
         <table>
             <tr>
                 <td colspan="3" id="dis">
-                    <div id="display"></div>
+                    <div id="display">00:00:00</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <div class="buttons">
-                      <button onclick="reset()" id="knop1">reset</button>
-                      <button onclick="start()" id="knop2">start</button>
-                      <button onclick="light()" id="knop3">light</button>
+                      <button onclick="reset()" id="knop1"></button>
+                      <button onclick="start()" id="knop2"></button>
+                      <button onclick="light()" id="knop3"></button>
                     </div> 
                 </td>
             </tr>
@@ -36,8 +36,8 @@
         let uur = 0;
         let loopt = true;
         let mijnInterval = setInterval(Teller, 10);
-        document.getElementById("display").innerHTML = nummer(uur) + ":" + nummer(min) + ":" + nummer(sec) + ":" + nummer(milsec);
 
+        //een fuction gemaakt zodat de nummers 1 tot 9 een 0 ervoor hebben.
         function nummer(num) {
             if (num < 10) {
                 return "0" + num;
@@ -46,6 +46,7 @@
             }
         }
 
+        //start knop en stop knop zo gemaakt omdat je anders 2 keer kan drukken en de tijd klopt dan niet
         function start() {
             if (!loopt) {
                 mijnInterval = setInterval(Teller, 10);
