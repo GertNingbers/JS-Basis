@@ -12,17 +12,17 @@
     <h1>JS-Stopwatch</h1>
     <div class="stopwatch">
         <table>
-            <tr class="tr1">
-                <td colspan="3" id="dis"><br><br>
+            <tr>
+                <td colspan="3" id="dis">
                     <div id="display"></div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <div class="buttons">
-                      <button onclick="reset()">reset</button>
-                      <button onclick="start()" id="start">start/stop</button>
-                      <button onclick="light()">light</button>
+                      <button onclick="reset()" id="knop1">reset</button>
+                      <button onclick="start()" id="knop2">start</button>
+                      <button onclick="light()" id="knop3">light</button>
                     </div> 
                 </td>
             </tr>
@@ -88,6 +88,7 @@
             }
         }
 
+        //licht knop !gold om te controleren of het gold achtergrond heeft
         document.getElementById('dis').style.backgroundColor = "lightgray";
         let gold = false;
         function light() {
