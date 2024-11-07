@@ -4,23 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stopwatch.css">
     <title>JS-Stopwatch</title>
 </head>
 
 <body>
-    <h2>The setInterval() Method</h2>
-    <div id="display"></div>
-    <button onclick="fStop()">stop</button>
-    <button onclick="start()" id="start">start</button>
-    <button onclick="reset()">reset</button>
+    <h1>JS-Stopwatch</h1>
+    <div class="stopwatch">
+        <table>
+            <tr class="tr1">
+                <td colspan="3" id="dis"><br><br>
+                    <div id="display"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="buttons">
+                      <button onclick="reset()">reset</button>
+                      <button onclick="start()" id="start">start/stop</button>
+                      <button onclick="light()">light</button>
+                    </div> 
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <script>
         let milsec = 0;
         let sec = 0;
         let min = 0;
         let uur = 0;
-        let loopt = false;
-        let mijnInterval = setInterval(secTeller, 10);
+        let loopt = true;
+        let mijnInterval = setInterval(Teller, 10);
         document.getElementById("display").innerHTML = nummer(uur) + ":" + nummer(min) + ":" + nummer(sec) + ":" + nummer(milsec);
 
         function nummer(num) {
@@ -31,35 +46,27 @@
             }
         }
 
-        function fStop() {
-            clearInterval(mijnInterval)
-            document.getElementById("start").innerHTML = "<button onclick='continu()'>continue</button>"
-            loopt = false;
-        }
-
         function start() {
             if (!loopt) {
-                mijnInterval = setInterval(secTeller, 10);
+                mijnInterval = setInterval(Teller, 10);
                 loopt = true;
+            } else {
+                clearInterval(mijnInterval)
+                loopt = false;
             }
         }
+
         function reset() {
             sec = 0;
             min = 0;
             uur = 0;
             milsec = 0;
+            loopt = false;
             document.getElementById("display").innerHTML = nummer(uur) + ":" + nummer(min) + ":" + nummer(sec) + ":" + nummer(milsec);
-            document.getElementById("start").innerHTML =  "<button onclick='start()'>start</button>";
-            
-        }
-        function continu() {
-            if (!loopt) {
-                mijnInterval = setInterval(secTeller, 10);
-                loopt = true;
-            }
+            clearInterval(mijnInterval)
         }
 
-        function secTeller() {
+        function Teller() {
             document.getElementById("display").innerHTML = nummer(uur) + ":" + nummer(min) + ":" + nummer(sec) + ":" + nummer(milsec);
 
             milsec++
@@ -71,11 +78,25 @@
             if (60 == sec) {
                 min++
                 sec = 0;
+                milsec = 0;
             }
             if (60 == min) {
                 uur++
                 min = 0;
                 sec = 0;
+                milsec = 0;
+            }
+        }
+
+        document.getElementById('dis').style.backgroundColor = "lightgray";
+        let gold = false;
+        function light() {
+            if (!gold) {
+                document.getElementById('dis').style.backgroundColor = "gold";
+                gold = true;
+            } else {
+                document.getElementById('dis').style.backgroundColor = "lightgray";
+                gold = false;
             }
         }
     </script>
