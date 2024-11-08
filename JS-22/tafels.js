@@ -20,6 +20,7 @@ function reken() {
         document.getElementById("wisknop").innerHTML = "<button onclick='wissen()'>Wissen</button>";
     }
 }
+
 function focus1() {
     document.getElementById("getal").focus();
 }

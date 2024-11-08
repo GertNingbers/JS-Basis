@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form-vad.css">
+    <title>Test-Form</title>
+</head>
+
+<body>
+    <h1>Test-Form</h1>
+    <form>
+        <fieldset>
+            <legend>Test Formulier</legend>
+            <p>*Naam:
+                <input type="text" id="voornaam" placeholder="Voornaam" value="">
+                <input type="text" id="tv" placeholder="T.V." value="">
+                <input type="text" id="achternaam" placeholder="Achternaam" value="">
+            </p>
+            <p>*Adres: <input type="text" id="adres" placeholder="Adres" value=""> </p>
+            <p>*PC Plaats: 
+                <input type="text" id="postcode" placeholder="Postcode" value=""> 
+                <input type="text" id="plaats" placeholder="Plaats" value=""> 
+            </p>
+            <p> Telefoon: <input type="text" id="telefoon" placeholder="Telefoon" value=""> </p>
+            <p> Email: <input type="text" id="email" placeholder="Email" value=""> </p>
+            <p> Geslacht: Vrouw:<input type="radio" id="geslacht" name="geslacht" value="Vrouw"> <br>
+                Man:<input type="radio" id="geslacht" name="geslacht" value="Man"> </p>
+            <p> Boyband:
+                <select name="boyband" id="boyband">
+                    <option value=""></option>
+                    <option value="1">K3 guys</option>
+                    <option value="2">Big time rush</option>
+                    <option value="3">one direction</option>
+                </select>
+            </p>
+            <p> Geboorte Datum: <input type="date" id="geboorte"> Opmaak: "dd-mm-jjjj"</p>
+            <P>*Verplichte Velden <button type="submit" id="submit" onclick="check()">verzend</button></P>
+        </fieldset>
+        <fieldset id="meldingplek">
+            <div id="melding"></div>
+        </fieldset>
+    </form>
+
+    <script src="form-vad.js"></script>
+</body>
+
+</html>
