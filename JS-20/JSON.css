@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: cadetblue;
+}
+table, td, tr {
+    border: 1px solid black;
+    background-color: white;
+}
+button  {
+      color: red;
+      background-color: lightyellow;
+      margin: 10px 15px 20px 10px;
+}
