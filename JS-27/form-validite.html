@@ -19,31 +19,120 @@
                 <input type="text" id="achternaam" placeholder="Achternaam" value="">
             </p>
             <p>*Adres: <input type="text" id="adres" placeholder="Adres" value=""> </p>
-            <p>*PC Plaats: 
-                <input type="text" id="postcode" placeholder="Postcode" value=""> 
-                <input type="text" id="plaats" placeholder="Plaats" value=""> 
+            <p>*PC Plaats:
+                <input type="text" id="postcode" placeholder="Postcode" value="">
+                <input type="text" id="plaats" placeholder="Plaats" value="">
             </p>
             <p> Telefoon: <input type="text" id="telefoon" placeholder="Telefoon" value=""> </p>
             <p> Email: <input type="text" id="email" placeholder="Email" value=""> </p>
-            <p> Geslacht: Vrouw:<input type="radio" id="geslacht" name="geslacht" value="Vrouw"> <br>
-                Man:<input type="radio" id="geslacht" name="geslacht" value="Man"> </p>
+            <p> Geslacht: Vrouw:<input type="radio" id="vrouw" name="geslacht" value="Vrouw"> <br>
+                Man:<input type="radio" id="man" name="geslacht" value="Man"> </p>
             <p> Boyband:
-                <select name="boyband">
+                <select name="boyband" id="boyband">
                     <option value=""></option>
-                    <option value="1">K3 guys</option>
-                    <option value="2">Big time rush</option>
-                    <option value="3">one direction</option>
+                    <option value="K3 guys">K3 guys</option>
+                    <option value="Big time rush">Big time rush</option>
+                    <option value="One direction">one direction</option>
                 </select>
             </p>
             <p> Geboorte Datum: <input type="date" id="geboorte"> Opmaak: "dd-mm-jjjj"</p>
-            <P>*Verplichte Velden <button type="submit" id="submit" onclick="check()">verzend</button></P>
+            <P>*Verplichte Velden <button type="submit" id="verzend" >verzend</button></P>
         </fieldset>
-        <fieldset id="meldingplek">
+        <fieldset class="meldingplek">
             <div id="melding"></div>
         </fieldset>
     </form>
 
-    <script src="form-vad.js"></script>
+    <script>
+        document.getElementById("verzend").addEventListener("click", check);
+
+        const voornaam = document.getElementById("voornaam");
+        const tv = document.getElementById("tv");
+        const achternaam = document.getElementById("achternaam");
+        const adres = document.getElementById("adres");
+        const postcode = document.getElementById("postcode");
+        const plaats = document.getElementById("plaats");
+        const telefoon = document.getElementById("telefoon");
+        const email = document.getElementById("email");
+        const geboortedatum = document.getElementById("geboorte");
+        const boyband = document.getElementById("boyband");
+
+        let text = "";
+
+        function check(event) {
+            event.preventDefault() ; // Voorkomt dat pagina opnieuw wordt geladen.
+            text = ""; 
+
+            // Controleert op verplichte velden.
+            if (!voornaam.value || !achternaam.value || !adres.value || !postcode.value || !plaats.value) {
+                if (!voornaam.value) {
+                    voornaam.style.backgroundColor = "red";
+                    text += "Voornaam is verplicht<br>";
+                } else {
+                    document.getElementById("voornaam").style.backgroundColor = "green";
+                }
+
+                if (!achternaam.value) {
+                    achternaam.style.backgroundColor = "red";
+                    text += "Achternaam is verplicht<br>";
+                } else {
+                    achternaam.style.backgroundColor = "green";
+                }
+
+                if (!adres.value) {
+                    adres.style.backgroundColor = "red";
+                    text += "Adres is verplicht<br>";
+                } else {
+                    adres.style.backgroundColor = "green";
+                }
+
+                if (!postcode.value) {
+                    postcode.style.backgroundColor = "red";
+                    text += "Postcode is verplicht<br>";
+                } else {
+                    postcode.style.backgroundColor = "green";
+                }
+
+                if (!plaats.value) {
+                    plaats.style.backgroundColor = "red";
+                    text += "Plaats is verplicht<br>";
+                } else {
+                    plaats.style.backgroundColor = "green";
+                }
+
+                document.getElementById("melding").innerHTML = text;
+                document.getElementById("melding").style.color = "red";
+            } else {
+                text = "Uw naam is: " + voornaam.value + " " + tv.value + " " + achternaam.value + "<br> Adres is: " + adres.value + "<br>Postcode: " + postcode.value + " " + plaats.value + "<br>";
+
+                if (telefoon.value) {
+                    text += "Jouw telefoonnummer is: " + telefoon.value + ".<br>";
+                }
+
+                if (email.value) {
+                    text += "Jouw email is: " + email.value + ".<br>";
+                }
+
+                if (geboortedatum.value) {
+                    text += "Jouw geboortedatum is: " + geboortedatum.value + ".<br>";
+                }
+                
+                if (boyband.value){
+                    text += "Jouw favoriete boyband is: " + boyband.value + ".<br>";
+                }
+
+                const geslacht = document.querySelector('input[name="geslacht"]:checked');
+                if (geslacht) {
+                    text += "Jouw geslacht is: " + geslacht.value + ".<br>";
+                }
+
+                document.getElementById("melding").innerHTML = text;
+                document.getElementById("melding").style.color = "black";
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
