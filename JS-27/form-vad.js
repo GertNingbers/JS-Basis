@@ -16,46 +16,40 @@ let text = "";
 function check(event) {
     event.preventDefault(); // Voorkomt dat pagina opnieuw wordt geladen.
     text = "";
+    
+    document.querySelectorAll(".verijst").forEach(element => element.style.backgroundColor = "lightgreen");
+
 
     // Controleert op verplichte velden.
     if (!voornaam.value || !achternaam.value || !adres.value || !postcode.value || !plaats.value) {
         if (!voornaam.value) {
             voornaam.style.backgroundColor = "red";
             text += "Voornaam is verplicht<br>";
-        } else {
-            document.getElementById("voornaam").style.backgroundColor = "green";
-        }
+        } 
 
         if (!achternaam.value) {
             achternaam.style.backgroundColor = "red";
             text += "Achternaam is verplicht<br>";
-        } else {
-            achternaam.style.backgroundColor = "green";
         }
 
         if (!adres.value) {
             adres.style.backgroundColor = "red";
             text += "Adres is verplicht<br>";
-        } else {
-            adres.style.backgroundColor = "green";
         }
 
         if (!postcode.value) {
             postcode.style.backgroundColor = "red";
             text += "Postcode is verplicht<br>";
-        } else {
-            postcode.style.backgroundColor = "green";
-        }
+        } 
 
         if (!plaats.value) {
             plaats.style.backgroundColor = "red";
             text += "Plaats is verplicht<br>";
-        } else {
-            plaats.style.backgroundColor = "green";
-        }
+        } 
 
         document.getElementById("melding").innerHTML = text;
         document.getElementById("melding").style.color = "red";
+        
     } else {
         text = "Uw naam is: " + voornaam.value + " " + tv.value + " " + achternaam.value + "<br> Adres is: " + adres.value + "<br>Postcode: " + postcode.value + " " + plaats.value + "<br>";
 

@@ -14,19 +14,27 @@
         <fieldset>
             <legend>Test Formulier</legend>
             <p>*Naam:
-                <input type="text" id="voornaam" placeholder="Voornaam" value="">
+                <input type="text" id="voornaam" placeholder="Voornaam" value="" class="verijst">
                 <input type="text" id="tv" placeholder="T.V." value="">
-                <input type="text" id="achternaam" placeholder="Achternaam" value="">
+                <input type="text" id="achternaam" placeholder="Achternaam" value="" class="verijst">
             </p>
-            <p>*Adres: <input type="text" id="adres" placeholder="Adres" value=""> </p>
+            <p>*Adres: <input type="text" id="adres" placeholder="Adres" value="" class="verijst"> </p>
             <p>*PC Plaats:
-                <input type="text" id="postcode" placeholder="Postcode" value="">
-                <input type="text" id="plaats" placeholder="Plaats" value="">
+                <input type="text" id="postcode" placeholder="Postcode" value="" class="verijst">
+                <input type="text" id="plaats" placeholder="Plaats" value="" class="verijst">
             </p>
-            <p> Telefoon: <input type="text" id="telefoon" placeholder="Telefoon" value=""> </p>
-            <p> Email: <input type="text" id="email" placeholder="Email" value=""> </p>
-            <p> Geslacht: Vrouw:<input type="radio" id="vrouw" name="geslacht" value="Vrouw"></p>
-            <p id="mantekst"> Man:<input type="radio" id="man" name="geslacht" value="Man"> </p>
+            <p> Telefoon:
+                <input type="text" id="telefoon" placeholder="Telefoon" value="">
+            </p>
+            <p> Email:
+                <input type="text" id="email" placeholder="Email" value="">
+            </p>
+            <p> Geslacht:
+                Vrouw: <input type="radio" id="vrouw" name="geslacht" value="Vrouw">
+            </p>
+            <p id="mantekst">
+                Man:<input type="radio" id="man" name="geslacht" value="Man">
+            </p>
             <p> Boyband:
                 <select name="boyband" id="boyband">
                     <option value=""></option>
@@ -35,8 +43,12 @@
                     <option value="One direction">one direction</option>
                 </select>
             </p>
-            <p> Geboorte Datum: <input type="date" id="geboorte"> Opmaak: "dd-mm-jjjj"</p>
-            <P>*Verplichte Velden <button type="submit" id="verzend" >verzend</button></P>
+            <p> Geboorte Datum:
+                <input type="date" id="geboorte"> Opmaak: "dd-mm-jjjj"
+            </p>
+            <P>*Verplichte Velden
+                <button type="submit" id="verzend">verzend</button>
+            </P>
         </fieldset>
         <fieldset class="meldingplek">
             <div id="melding"></div>
