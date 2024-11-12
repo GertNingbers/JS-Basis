@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <Link rel="stylesheet" href="JS-events.css">
     <title>JS-Events</title>
 </head>
+
 <body>
     <h1>JS-Events</h1>
-    
-     <p>Naam: <input type="text" id="naam" value="" placeholder="Naam" onblur="blurt()"><span id="span" style="color: #810606;"></span></p>
-     <p>Leeftijd: <input type="text" id="leeftijd" value="" placeholder="leeftijd" onkeyup="key()"></p>
+
+    <p class="min">Minimale lengte naam:
+        <input type="number" id="min" placeholder="Minimale lengte naam" value="2" onchange="blurt()">
+    </p>
+    <p class="max">
+        Maximale lengte naam:
+        <input type="number" id="max" placeholder="Maximale lengte naam" value="10" onchange="blurt()">
+    </p>
+    <p class="naam">Naam: 
+        <input type="text" id="naam" value="" placeholder="Naam" onblur="blurt()"><span id="span"></span>
+    </p>
+    <p class="text">Type hier iets: 
+        <input type="text" id="leeftijd" value="" placeholder="Vrij typen wat je wilt" onkeyup="key()">
+    </p>
 
     <div id="output"></div>
 
     <script src="JS-events.js"></script>
 </body>
+
 </html>
